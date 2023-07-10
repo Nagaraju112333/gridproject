@@ -1,0 +1,79 @@
+{
+  "name": "node-apis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "engines": {
+    "node": "10.19.0"
+  },
+  "scripts": {
+    "start": "nodemon --max-http-header-size=102400 app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint js"
+  },
+  "nodemonConfig": {
+    "ext": "js, ts, graphql, json,yaml",
+    "ignore": [
+      "logs/*",
+      "out/*",
+      "swagger.json",
+      "node_modules",
+      "ccps/*",
+      "wallet/*"
+    ],
+    "delay": "2500"
+  },
+  "author": "Aciana",
+  "license": "ISC",
+  "dependencies": {
+    "app-root-path": "^2.2.1",
+    "async-redis": "^2.0.0",
+    "bcrypt": "^5.1.0",
+    "blob": "0.0.5",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "cross-blob": "1.1.0",
+    "dotenv": "^8.1.0",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "express-bearer-token": "^2.4.0",
+    "express-cluster": "0.0.5",
+    "express-fileupload": "^1.4.0",
+    "express-jwt": "^5.3.1",
+    "fabric-ca-client": "^1.4.4",
+    "fabric-client": "1.4.4",
+    "fabric-network": "^1.4.4",
+    "fs": "0.0.1-security",
+    "helmet": "^3.21.1",
+    "isemail": "^3.2.0",
+    "js-yaml": "3.13.1",
+    "json-refs": "3.0.13",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^5.7.3",
+    "mongoose-uuid2": "^2.3.0",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.2",
+    "multi-file-swagger": "2.3.0",
+    "nodemailer": "^6.4.4",
+    "path-to-regexp": "^3.1.0",
+    "razorpay": "^2.0.6",
+    "read-excel-file": "^4.0.6",
+    "rebuild": "^0.1.2",
+    "redis": "^4.6.5",
+    "request": "^2.88.0",
+    "sha3": "^2.0.7",
+    "stripe": "^8.222.0",
+    "swagger-cli": "^2.3.1",
+    "swagger-ui-express": "^4.1.2",
+    "uuidv4": "^5.0.1",
+    "winston": "^3.2.1",
+    "winston-mongodb": "^5.1.1",
+    "xlsx-populate": "^1.21.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.1",
+    "jsdoc": "3.6.3",
+    "nodemon": "1.19.3"
+  }
+}

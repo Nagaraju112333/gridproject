@@ -1,0 +1,38 @@
+version: "3"
+services:
+  mongo:
+    image: mongo:4.4.6
+    ports:
+      - 27017:27017
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    hostname: mongo
+    volumes:
+      - /home/archents/mongo_backup/grid/:/data/db/
+    networks:
+      - gridext
+  gridproject:
+    image: gridproject
+    ports:
+        - "8002:8002"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    hostname: gridproject
+    environment:
+      - EMAIL_USRNAME=nagaraju.boda@archents.com
+    volumes:
+      - /home/archents/GRID/GRIDPROJECT:/usr/app/
+    depends_on:
+      - mongo
+    links:
+      - mongo
+    networks:
+      - gridext
+ 
+networks:
+  gridext:
+    external: true

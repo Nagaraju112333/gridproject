@@ -24,6 +24,10 @@ exports.authorization = async (req, res, next) => {
 if (req.originalUrl.indexOf("/login") >= 0) {
   return next();
 }
+// if (req.originalUrl.indexOf("/addpin") >= 0) {
+//   return next();
+// }
+
   
   
   
@@ -47,7 +51,7 @@ if (req.originalUrl.indexOf("/login") >= 0) {
         req.body.id = decoded.id;
         req.body.UName = decoded.username;
         req.empID = decoded.empID;
-        req.designation = decoded.role;
+        req.role = decoded.role;
         //console.log(req.id,req.body.id)
         // req._id=decoded._id;
         logger.info(

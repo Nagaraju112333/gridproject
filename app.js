@@ -20,7 +20,8 @@ const unprotected = [
   //pathToRegexp("/favicon.ico"),
   "/stakeholderREgister",
   "/verifyAccount",
-  "/login"
+  "/login",
+  //"/addpin"
 
 ];
 /**Express server starts here */

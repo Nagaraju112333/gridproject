@@ -39,7 +39,7 @@ routes.post("/login",async (req,res)=>{
 })
 routes.get("/verifyotp",async (req,res)=>{
     try{
-        
+      //console.log(req.id,"userid")
         let verifyOtp=await verifyotpfunctions.fcnVerifyOtpandGetUserData(req.id,req.query.otp)
         res.send(verifyOtp)
     }

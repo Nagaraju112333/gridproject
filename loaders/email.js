@@ -109,8 +109,26 @@ async function sendEmail(email, firstName, lastName) {
       throw err;
     }
   }
+  async function addpinmessage(email){
+    //console.log(email,"send message")
+    try {
+      return await transporter.sendMail({
+        from: CONFIG.EMAIL_USRNAME,
+        to: email,
+        subject: "new pin successfull Message",
+        text:
+          "Hi:"+" admin added a new pin  please login and check "
+      });
+      
+    
+    } catch (err) {
+      logger.error("Error: " + err);
+      throw err;
+    }
+  }
   exports.emailService={
     sendEmail:sendEmail,
     registerEmailVerfication:registerEmailVerfication,
-    sendLoginotp:sendLoginotp
+    sendLoginotp:sendLoginotp,
+    addpinmessage:addpinmessage
   }

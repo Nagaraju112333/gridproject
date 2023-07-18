@@ -7,6 +7,7 @@ const generateToken=require("../lib/generateToken");
 const { tokensToRegExp } = require("path-to-regexp");
 //const { contentSecurityPolicy } = require("helmet");
 const verifyOtpModel=require("../models/otpModel");
+const pinDetails=require("../models/addpinModel")
 
 async function fcnstackholderRegister(data){
 
@@ -108,26 +109,29 @@ async function fcnLogin(data){
     return err
   }
 }
-async function fcnVerifyOtpandGetUserData(id,otp,role){
+async function fcnVerifyOtpandGetUserData(id,otp){
   try{
      let verityotp=await verifyOtpModel.findOne({otp:otp,userid:id});
      if(verityotp!=null){
         let deleteOtp=await verifyOtpModel.deleteOne({otp:otp,userid:id});
-        return ({message:"otp verify successfully done"})
+        let getUserDetails=await stakeholders.findOne({_id:id});
+        console.log(getUserDetails,"=====================")
+        return getUserDetails
+        //return ({message:"otp verify successfully done"})
      }
      else{
-       return ({message:"invalid otp"})
+       return ({message:"invalid otp "})
      }
   }
   catch(err){
     return err
   }
 }
+
 exports.allStackholderFunctions={
     fcnstackholderRegister:fcnstackholderRegister,
     fcnVerifyAccount:fcnVerifyAccount,
-    fcnLogin:fcnLogin,
-   
+    fcnLogin:fcnLogin  
 }
 exports.verifyotpfunctions={
   fcnVerifyOtpandGetUserData:fcnVerifyOtpandGetUserData
